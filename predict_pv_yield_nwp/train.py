@@ -74,6 +74,8 @@ def train(grib_filename: str) -> pd.DataFrame:
     df = pd.DataFrame(
         {
             "system_id": pv_subset["system_id"].values,
+            "easting": pv_subset["easting"].values,
+            "northing": pv_subset["northing"].values,
             "slope": lr_result[:, 0],
             "intercept": lr_result[:, 1],
             "rvalue": lr_result[:, 2],
