@@ -156,8 +156,16 @@ def load_pv_timeseries(
     # Convert back to xarray
     ds = xr.Dataset.from_dataframe(df)
 
-    # Add eastings and northings coordinates by doing a pandas lookup for each system
+    # Add lat/long and easting/northing coordinates by doing a pandas lookup for each system
     new_coords = {
+        "latitude": (
+            ["system_id"],
+            pv_df.lookup(system_ids, ["latitude"] * len(system_ids)),
+        ),
+        "longitude": (
+            ["system_id"],
+            pv_df.lookup(system_ids, ["longitude"] * len(system_ids)),
+        ),
         "easting": (
             ["system_id"],
             pv_df.lookup(system_ids, ["easting"] * len(system_ids)),

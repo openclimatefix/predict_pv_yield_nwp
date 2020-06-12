@@ -74,6 +74,8 @@ def train(grib_filename: str) -> pd.DataFrame:
     df = pd.DataFrame(
         {
             "system_id": pv_subset["system_id"].values,
+            "latitude": pv_subset["latitude"].values,
+            "longitude": pv_subset["longitude"].values,
             "easting": pv_subset["easting"].values,
             "northing": pv_subset["northing"].values,
             "slope": lr_result[:, 0],
