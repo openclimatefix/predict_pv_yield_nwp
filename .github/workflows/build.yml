@@ -16,12 +16,13 @@ jobs:
       - name: Install conda
         uses: goanpeca/setup-miniconda@v1
         with:
-          auto-update-conda: true
-          python-version: "3.8"
+          activate-environment: predict_pv_yield_nwp
+          environment-file: environment.yml
+          python-version: 3.8
+          auto-activate-base: false
       - name: Install dependencies
         shell: bash -l {0}
         run: |
-          conda env create -f environment.yml 
           conda activate predict_pv_yield_nwp
           pip install -e .
       - name: Check formatting with black
