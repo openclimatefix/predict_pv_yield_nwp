@@ -1,0 +1,22 @@
+name: Run tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update Conda environment with "requirements.yml"
+        uses: matthewrmshin/conda-action@v1
+        with:
+          args: conda env update -f ./requirements.yml
+      - name: Test with pytest
+        run: |
+          pytest
