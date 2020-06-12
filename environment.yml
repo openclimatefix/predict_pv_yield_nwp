@@ -5,7 +5,6 @@ dependencies:
   - python>=3.8
   - numcodecs
   - zarr
-  - pytest
   - pandas
   - matplotlib
   - xarray
@@ -15,4 +14,3 @@ dependencies:
   - dask[array]
   - netcdf4
   - cfgrib
-  - black

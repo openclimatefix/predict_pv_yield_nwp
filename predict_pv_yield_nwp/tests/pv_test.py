@@ -2,7 +2,6 @@ import os.path
 import pytest
 
 from predict_pv_yield_nwp.pv import load_pv_systems
-from predict_pv_yield_nwp.pv import load_pv_timeseries
 from predict_pv_yield_nwp.pv import METADATA_FILENAME
 
 

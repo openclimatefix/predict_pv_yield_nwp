@@ -6,7 +6,6 @@ import xarray as xr
 
 from predict_pv_yield_nwp.nwp import load_ukv_dataset, UKV1_FILENAME
 from predict_pv_yield_nwp.pv import (
-    load_pv_systems,
     load_pv_timeseries,
     START_DATE,
     END_DATE,
@@ -51,9 +50,9 @@ def train(grib_filename: str) -> pd.DataFrame:
     stacked = merged.to_stacked_array("sys", sample_dims=["system_id"])
 
     def lr(arr):
-        l = len(arr) // 2
-        x = arr[:l]  # dswrf
-        y = arr[l:]  # pv_yield
+        half_len = len(arr) // 2
+        x = arr[:half_len]  # dswrf
+        y = arr[half_len:]  # pv_yield
 
         # We need to mask y values that are NaN, since linregress does not do this, see https://stackoverflow.com/a/33550387
         xm = np.ma.masked_array(x, mask=np.isnan(y)).compressed()
