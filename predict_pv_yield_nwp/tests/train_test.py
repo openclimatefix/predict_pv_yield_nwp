@@ -1,8 +1,8 @@
 import os.path
-import pytest
 
-from predict_pv_yield_nwp.train import train
+import pytest
 from predict_pv_yield_nwp.nwp import UKV1_FILENAME
+from predict_pv_yield_nwp.train import train
 
 
 @pytest.mark.skipif(not os.path.exists(UKV1_FILENAME), reason="requires test data")

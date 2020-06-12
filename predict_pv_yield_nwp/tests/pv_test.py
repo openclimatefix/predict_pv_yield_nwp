@@ -1,8 +1,7 @@
 import os.path
-import pytest
 
-from predict_pv_yield_nwp.pv import load_pv_systems
-from predict_pv_yield_nwp.pv import METADATA_FILENAME
+import pytest
+from predict_pv_yield_nwp.pv import METADATA_FILENAME, load_pv_systems
 
 
 @pytest.mark.skipif(not os.path.exists(METADATA_FILENAME), reason="requires test data")

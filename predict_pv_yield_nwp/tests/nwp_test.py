@@ -1,8 +1,7 @@
 import os.path
-import pytest
 
-from predict_pv_yield_nwp.nwp import load_ukv_dataset
-from predict_pv_yield_nwp.nwp import UKV1_FILENAME
+import pytest
+from predict_pv_yield_nwp.nwp import UKV1_FILENAME, load_ukv_dataset
 
 
 @pytest.mark.skipif(not os.path.exists(UKV1_FILENAME), reason="requires test data")
