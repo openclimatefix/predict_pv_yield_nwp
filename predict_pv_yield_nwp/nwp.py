@@ -42,7 +42,7 @@ def _reshape_data(data: xr.DataArray) -> xr.DataArray:
 
     # Get new coords
     coords = data.expand_dims(
-        {"northing": NORTHING, "easting": EASTING}, axis=[1, 2] # type: ignore
+        {"northing": NORTHING, "easting": EASTING}, axis=[1, 2]  # type: ignore
     ).coords
 
     # AFAICT, we Xarray doesn't allow us to re-shape data in-place.  Instead,
