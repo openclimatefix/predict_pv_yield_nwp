@@ -27,4 +27,6 @@ jobs:
       - name: Test with pytest
         shell: bash -l {0}
         run: |
+          conda activate predict_pv_yield_nwp
+          conda list
           pytest
