@@ -6,6 +6,7 @@
 import cartopy.crs as ccrs
 import numpy as np
 import pandas as pd
+
 import xarray as xr
 
 METADATA_FILENAME = "data/PV/PVOutput.org/UK_PV_metadata.csv"
@@ -97,6 +98,7 @@ def _transform_pv_systems(pv_systems: xr.Dataset) -> xr.Dataset:
 # This is unused, but a useful check
 def _transform_pv_systems_pyproj(pv_systems: xr.Dataset) -> xr.Dataset:
     """Transform the system locations into the same coordinate system used by UKV, using pyproj"""
+    import pyproj
 
     system_latitudes, system_longitudes = (
         pv_systems["latitude"].values,

@@ -3,6 +3,7 @@
 # Based on code from https://nbviewer.jupyter.org/github/JackKelly/ng_nwp/blob/master/plot_grib.ipynb
 
 import numpy as np
+
 import xarray as xr
 
 UKV1_FILENAME = "data/NWP/UK_Met_Office/UKV/2019/08/09/NWP_UK_Met_Office_UKV_2019_08_09_201908090000_u1096_ng_umqv_Wholesale2.grib"
@@ -41,7 +42,7 @@ def _reshape_data(data: xr.DataArray) -> xr.DataArray:
 
     # Get new coords
     coords = data.expand_dims(
-        {"northing": NORTHING, "easting": EASTING}, axis=[1, 2]
+        {"northing": NORTHING, "easting": EASTING}, axis=[1, 2]  # type: ignore
     ).coords
 
     # AFAICT, we Xarray doesn't allow us to re-shape data in-place.  Instead,

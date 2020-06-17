@@ -19,7 +19,17 @@ The training data is in a GCP bucket, and is not yet publicly available.
 conda env create -f environment.yml 
 conda activate predict_pv_yield_nwp
 pip install -e .
+conda install black flake8 isort mypy pytest
 pytest -s
+```
+
+Enforce/check code standards
+
+```bash
+black predict_pv_yield_nwp
+flake8
+isort -rc .
+mypy predict_pv_yield_nwp
 ```
 
 ## Train a model locally
